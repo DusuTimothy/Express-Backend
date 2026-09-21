@@ -1,4 +1,4 @@
-const { hashPasswordSync } = require("./utils/hashPassword");
+// const { hashPasswordSync } = require("./utils/hashPassword");
 
 const Users = [
   {
@@ -6,21 +6,21 @@ const Users = [
     name: "dusu",
     email: "dusu@example.com",
     role: "user",
-    password: hashPasswordSync("Dusu@1234")
+    password: "Dusu@1234"
   },
   {
     id: 2,
     name: "timothy",
     email: "timothy@example.com",
     role: "user",
-    password: hashPasswordSync("Timothy@1234")
+    password: "Timothy@1234"
   },
   {
     id: 3,
     name: "lois",
     email: "lois@example.com",
     role: "admin",
-    password: hashPasswordSync("Lois@1234")
+    password: "Lois@1234"
   }
 ];
 
