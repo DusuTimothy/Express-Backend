@@ -11,6 +11,27 @@ const getProducts = (req, res, next) => {
   }
 };
 
+const getProductById = (req, res, next) => {
+  try {
+    const id = Number(req.params.id);
+    const product = Products.find((p) => p.id === id);
+
+    if (!product) {
+      return res.status(404).json({
+        status: "error",
+        message: "Product not found"
+      });
+    }
+
+    return res.status(200).json({
+      status: "success",
+      product
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const createProduct = (req, res, next) => {
   try {
     const { name, description, price } = req.body;
@@ -86,6 +107,7 @@ const deleteProduct = (req, res, next) => {
 
 module.exports = {
   getProducts,
+  getProductById,
   createProduct,
   updateProduct,
   deleteProduct

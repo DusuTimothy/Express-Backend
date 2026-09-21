@@ -3,6 +3,7 @@ const router = express.Router();
 
 const {
   getProducts,
+  getProductById,
   createProduct,
   updateProduct,
   deleteProduct
@@ -16,7 +17,7 @@ const {
 } = require("../validators/productCheck");
 
 router.get("/", authenticate, getProducts);
-router.get("/:id", authenticate, getProducts);
+router.get("/:id", authenticate, getProductById);
 router.post(
   "/",
   authenticate,

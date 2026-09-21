@@ -1,6 +1,4 @@
-const bcrypt = require("bcrypt");
-
-const saltRounds = Number(process.env.SALT_ROUNDS) || 10;
+const { hashPasswordSync } = require("./utils/hashPassword");
 
 const Users = [
   {
@@ -8,21 +6,21 @@ const Users = [
     name: "dusu",
     email: "dusu@example.com",
     role: "user",
-    password: bcrypt.hashSync("Dusu@123", saltRounds)
+    password: hashPasswordSync("Dusu@1234")
   },
   {
     id: 2,
     name: "timothy",
     email: "timothy@example.com",
     role: "user",
-    password: bcrypt.hashSync("Timothy@123", saltRounds)
+    password: hashPasswordSync("Timothy@1234")
   },
   {
     id: 3,
     name: "lois",
     email: "lois@example.com",
     role: "admin",
-    password: bcrypt.hashSync("Lois@123", saltRounds)
+    password: hashPasswordSync("Lois@1234")
   }
 ];
 

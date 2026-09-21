@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { Users } = require("../database");
+const { hashPassword } = require("../utils/hashPassword");
 
 const successfulRegister = async (req, res, next) => {
   try {
@@ -15,16 +16,13 @@ const successfulRegister = async (req, res, next) => {
       });
     }
 
-    const hashPassword = await bcrypt.hash(
-      req.body.password,
-      Number(process.env.SALT_ROUNDS)
-    );
+    const hashedPassword = await hashPassword(req.body.password);
 
     const newUser = {
       id: Users.length + 1,
       email,
       name: req.body.name,
-      password: hashPassword,
+      password: hashedPassword,
       role: req.body.role
     };
 
