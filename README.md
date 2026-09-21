@@ -46,6 +46,7 @@ Server listens on `http://localhost:PORT`.
 | `POST` | `/api/auth/register` | None        | —           | Register a new user      |
 | `POST` | `/api/auth/login`    | None        | —           | Login and receive JWT    |
 | `GET`  | `/api/products`      | Bearer JWT  | admin, user | List all products        |
+| `GET`  | `/api/products/:id`  | Bearer JWT  | admin, user | Get a product by ID      |
 | `POST` | `/api/products`      | Bearer JWT  | admin       | Create a product         |
 | `PUT`  | `/api/products/:id`  | Bearer JWT  | admin       | Update a product         |
 | `DELETE` | `/api/products/:id`| Bearer JWT  | admin       | Delete a product         |
@@ -58,6 +59,7 @@ Server listens on `http://localhost:PORT`.
 |------------------------|-----------|------|-------|
 | Register / Login       | Yes       | Yes  | Yes   |
 | List products          | No        | Yes  | Yes   |
+| Get product by ID      | No        | Yes  | Yes   |
 | Create / Update / Delete product | No | No   | Yes   |
 | `/role/admin`          | No        | No   | Yes   |
 | `/role/user`           | No        | Yes  | Yes   |
