@@ -6,4 +6,4 @@ const hashPassword = (password) => bcrypt.hash(password, saltRounds());
 
 const hashPasswordSync = (password) => bcrypt.hashSync(password, saltRounds());
 
-module.exports = { hashPassword, hashPasswordSync };
+module.exports = { hashPassword, hashPasswordSync }; 
